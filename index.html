@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giulia & Massimiliano - Wedding Party</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'TAN Headline';
+            src: url('assets/fonts/TAN-Headline/TANHEADLINE-Regular.ttf') format('truetype'),
+                 url('assets/fonts/TAN-Headline/TANHEADLINE-Regular.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'High Cruiser';
+            src: url('assets/fonts/HighCruiser-PersonalUseOnly.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            font-family: 'Open Sans', sans-serif;
+            color: #33241e;
+            scroll-behavior: smooth;
+            scroll-snap-type: y mandatory;
+        }
+
+        .section {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            position: relative;
+            flex-direction: column;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        /* SECTION 1 - Hero with background */
+        .section-1 {
+            background-image: url('assets/background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            justify-content: space-between;
+            padding: 100px 20px;
+        }
+
+        .section-1::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .section-1 > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-1 h1 {
+            font-family: 'TAN Headline', serif;
+            font-size: 60px;
+            color: white;
+            margin-bottom: 0;
+            margin-top: 0;
+            font-weight: normal;
+            letter-spacing: 2px;
+        }
+
+        .section-1 .middle-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        .section-1 .subtitle {
+            font-family: 'High Cruiser', cursive;
+            font-size: 26px;
+            color: white;
+            margin: 0;
+            font-weight: normal;
+        }
+
+        .section-1 .names {
+            font-family: 'TAN Headline', serif;
+            font-size: 40px;
+            color: white;
+            margin: 0;
+            font-weight: normal;
+        }
+
+        .section-1 .date {
+            font-family: 'TAN Headline', serif;
+            font-size: 24px;
+            color: white;
+            font-weight: normal;
+            margin-bottom: 0;
+        }
+
+        /* SECTION 2 - Location & Program */
+        .section-2 {
+            background: #f8f5f2;
+        }
+
+        .section-2 h2 {
+            font-family: 'TAN Headline', serif;
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #33241e;
+            font-weight: normal;
+        }
+
+        .location {
+            max-width: 500px;
+            margin-bottom: 40px;
+        }
+
+        .location p {
+            font-family: 'High Cruiser', cursive;
+            font-size: 14px;
+            margin: 8px 0;
+            color: #33241e;
+        }
+
+        .location p.location-city {
+            font-family: 'Open Sans', sans-serif;
+            /* font-size: 12px */
+        }
+
+        .map-container {
+            width: 100%;
+            max-width: 600px;
+            height: 350px;
+            margin: 0 auto 60px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(51, 36, 30, 0.1);
+        }
+
+        .schedule {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .schedule-item {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 8px 0;
+            font-size: 15px;
+            color: #33241e;
+        }
+
+        .schedule-time {
+            font-weight: 600;
+            color: #33241e;
+            margin-right: 20px;
+            min-width: 100px;
+        }
+
+        .schedule-event {
+            color: #33241e;
+        }
+
+        /* SECTION 3 - Contacts */
+        .section-3 {
+            background: #e8e3de;
+            padding: 30px 20px;
+        }
+
+        .section-3 h2 {
+            font-family: 'TAN Headline', serif;
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #33241e;
+            font-weight: normal;
+        }
+
+        .rsvp {
+            font-family: 'TAN Headline', serif;
+            font-size: 16px;
+            margin-top: 10px;
+            margin-bottom: 80px;
+            color: #33241e;
+            font-weight: normal;
+        }
+
+        .photo-container {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(51, 36, 30, 0.1);
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .contacts {
+            display: flex;
+            gap: 10px;
+            max-width: 450px;
+            margin: 0 auto 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-card {
+            background: white;
+            border-radius: 8px;
+            padding: 15px 15px 5px;
+            flex: 1;
+            max-width: 220px;
+            box-shadow: 0 2px 10px rgba(51, 36, 30, 0.1);
+        }
+
+        .contact-name {
+            font-family: 'TAN Headline', serif;
+            font-size: 14px;
+            color: #33241e;
+            margin-bottom: 8px;
+            font-weight: normal;
+        }
+
+        .contact-item {
+            font-size: 13px;
+            margin: 6px 0;
+            color: #33241e;
+        }
+
+        .contact-email {
+            font-size: 12px;
+        }
+
+        .contact-phone {
+            font-size: 14px;
+        }
+
+        .contact-item a {
+            color: #33241e;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+
+
+        .gift {
+            max-width: 500px;
+            margin: 4px auto 0;
+        }
+
+        .gift-text {
+            font-size: 18px;
+            color: #33241e;
+            margin: 4px 0 0;
+        }
+
+        .gift-details {
+            margin-top: 15px;
+        }
+
+        .gift-detail-item {
+            font-size: 12px;
+            color: #33241e;
+            margin: 4px 0;
+            line-height: 1.4;
+        }
+
+        .gift-detail-label {
+            font-weight: 600;
+        }
+
+        .gift-detail-value {
+            font-family: monospace;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .section-1 h1 {
+                font-size: 32px;
+            }
+
+            .section-1 .names {
+                font-size: 26px;
+            }
+
+            .section-1 .date {
+                font-size: 24px;
+            }
+
+            .section-1 .subtitle {
+                font-size: 26px;
+            }
+
+            .map-container {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- SECTION 1 - Hero -->
+    <section class="section section-1">
+        <h1>ONE NIGHT ONLY</h1>
+        <div class="middle-group">
+            <div class="subtitle">wedding party</div>
+            <div class="names">Giulia&Massimiliano</div>
+        </div>
+        <div class="date">28.03.2026</div>
+    </section>
+
+    <!-- SECTION 2 - Location & Program -->
+    <section class="section section-2">
+        <h2>Dove</h2>
+        
+        <div class="location">
+            <p class="location-name">SALONE DELLE ESPOSIZIONI</p>
+            <p>ROCCA MALATESTIANA</p>
+            <p class="location-city">Piazzale Sigismondo Pandolfo Malatesta - Fano</p>
+        </div>
+
+        <div class="map-container">
+            <iframe width="100%" height="100%" style="border:0; border-radius: 8px;" src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1441.9718634297946!2d13.013315076520636!3d43.84711085396834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f17!3m2!1m1!2zNDPCsDUwJzQ5LjYiTiAxM8KwMDAnNTUuNiJF!5e0!3m2!1sit!2sit!4v1736612200000!5m2!1sit!2sit" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <h2>Programma</h2>
+        <div class="schedule">
+            <div class="schedule-item">
+                <span class="schedule-time">20:00</span>
+                <span class="schedule-event">Drink di benvenuto</span>
+            </div>
+            <div class="schedule-item">
+                <span class="schedule-time">20:30</span>
+                <span class="schedule-event">Cerimonia</span>
+            </div>
+            <div class="schedule-item">
+                <span class="schedule-time">21:00</span>
+                <span class="schedule-event">Buffet</span>
+            </div>
+            <div class="schedule-item">
+                <span class="schedule-time">23:00</span>
+                <span class="schedule-event">Si aprono le danze</span>
+            </div>
+            <div class="schedule-item">
+                <span class="schedule-time">più tardi</span>
+                <span class="schedule-event">Facciamo come Baglioni</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3 - Contacts -->
+    <section class="section section-3">
+        <h2>Contatti</h2>
+
+        <div class="photo-container">
+            <img src="assets/giulia-massi.png" alt="Giulia & Massimiliano">
+        </div>
+
+        <div class="contacts">
+            <div class="contact-card">
+                <div class="contact-name">Giulia</div>
+                <div class="contact-item contact-email"><a href="mailto:g.pietraccini@gmail.com">g.pietraccini@gmail.com</a></div>
+                <div class="contact-item contact-phone"><a href="https://wa.me/393336554844?text=Ciao%20Giulia!%20Confermo%20la%20mia%20presenza!">333 655 4844</a></div>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-name">Massimiliano</div>
+                <div class="contact-item contact-email"><a href="mailto:massick@gmail.com">massick@gmail.com</a></div>
+                <div class="contact-item contact-phone"><a href="https://wa.me/393701522926?text=Ciao%20Massi!%20Confermo%20la%20mia%20presenza!">370 152 2926</a></div>
+            </div>
+        </div>
+
+        <div class="rsvp">Confermare entro il 31.01.2026</div>
+
+        <div class="gift">
+            <div class="gift-text">L'unico regalo che vogliamo è vedervi ballare con noi!</div>
+            <div class="gift-text">Ma se proprio insistete...</div>
+            <div class="gift-details">
+                <div class="gift-detail-item"><span class="gift-detail-label">Beneficiario:</span> <span class="gift-detail-value">M Zoffoli & G Pietraccini</span></div>
+                <div class="gift-detail-item"><span class="gift-detail-label">IBAN:</span> <span class="gift-detail-value">IT34 U036 6901 6008 9012 6710 799</span></div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
