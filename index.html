@@ -82,6 +82,21 @@
         .section-1 .date {
             font-family: 'TAN Headline', serif;
             color: white;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5),
+                         0 0 15px rgba(255, 255, 255, 0.3);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 8px rgba(255, 255, 255, 0.5),
+                             0 0 15px rgba(255, 255, 255, 0.3);
+            }
+            to {
+                text-shadow: 0 0 12px rgba(255, 255, 255, 0.7),
+                             0 0 20px rgba(255, 255, 255, 0.4),
+                             0 0 25px rgba(255, 255, 255, 0.2);
+            }
         }
 
         .section-1 h1 {
@@ -100,6 +115,9 @@
             font-family: 'High Cruiser', cursive;
             font-size: 26px;
             color: white;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5),
+                         0 0 15px rgba(255, 255, 255, 0.3);
+            animation: glow 2s ease-in-out infinite alternate;
         }
 
         .section-1 .names {
